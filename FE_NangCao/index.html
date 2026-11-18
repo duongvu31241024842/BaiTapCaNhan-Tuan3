@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Web Design – Vũ Thùy Dương</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;800&display=swap");
+    :root {
+      --deep: #2b1055;
+      --violet: #6d3fd1;
+      --lilac: #c9b5f5;
+      --mist: #f1ebfd;
+      --ink: #241640;
+      --gold: #ffd166;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: "Be Vietnam Pro", "Segoe UI", Arial, sans-serif;
+      line-height: 1.7; color: var(--ink); background: var(--mist);
+    }
+    a { color: var(--violet); }
+    a:focus-visible, .btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+    .layout { display: grid; grid-template-columns: 300px 1fr; min-height: 100vh; }
+
+    aside {
+      background: linear-gradient(180deg, var(--deep), #4b23a0);
+      color: #fff; padding: 2.5rem 1.75rem;
+      position: sticky; top: 0; height: 100vh; align-self: start;
+    }
+    aside h1 { margin: 0 0 .25rem; font-size: 1.7rem; font-weight: 800; line-height: 1.25; }
+    aside .sub { margin: 0 0 1.75rem; color: var(--lilac); }
+    dl { margin: 0 0 1.75rem; }
+    dt { font-size: .85rem; color: var(--lilac); }
+    dd { margin: 0 0 .9rem; font-weight: 600; word-break: break-word; }
+    aside a { color: var(--gold); }
+    aside nav a { display: block; margin-bottom: .5rem; font-weight: 600; }
+
+    main { padding: 2.5rem 2.25rem 3rem; max-width: 860px; }
+    main h2 { margin: 0 0 .75rem; font-size: 1.5rem; color: var(--deep); }
+    main h3 { margin: 1.5rem 0 .4rem; font-size: 1.05rem; color: var(--violet); }
+    p { margin: 0 0 .85rem; }
+    ul { margin: 0; padding-left: 1.2rem; }
+    li { margin-bottom: .55rem; }
+    li::marker { color: var(--violet); }
+    code { background: #e4d9fb; padding: .1rem .4rem; border-radius: 4px; font-size: .9em; }
+    section { margin-bottom: 2.75rem; }
+
+    .table-wrap { overflow-x: auto; border-left: 5px solid var(--violet); background: #fff; }
+    table { border-collapse: collapse; width: 100%; min-width: 480px; }
+    th, td { padding: .65rem .9rem; text-align: left; vertical-align: top; border-bottom: 1px solid #e4d9fb; }
+    th { background: var(--deep); color: #fff; font-weight: 600; }
+
+    .meter { background: var(--deep); color: #fff; padding: .9rem 1.1rem; font-weight: 600; margin-bottom: 1.1rem; }
+    .meter span { color: var(--gold); }
+    .btn {
+      display: inline-block; background: var(--violet); color: #fff; font-weight: 800;
+      text-decoration: none; padding: .75rem 1.75rem; border-radius: 6px;
+    }
+    .btn:hover { background: var(--deep); }
+    .links { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1rem; }
+    .btn.alt { background: transparent; color: var(--violet); border: 2px solid var(--violet); }
+    .btn.alt:hover { background: var(--violet); color: #fff; }
+
+    @media (max-width: 800px) {
+      .layout { grid-template-columns: 1fr; }
+      aside { position: static; height: auto; padding: 1.75rem 1.25rem; }
+      main { padding: 1.75rem 1.25rem 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside>
+      <h1>Vũ Thùy Dương</h1>
+      <p class="sub">Bài tập cá nhân – Tuần 3</p>
+      <dl>
+        <dt>Mã số sinh viên</dt>
+        <dd>31241024842</dd>
+        <dt>Lớp học phần</dt>
+        <dd><a href="https://lms.ueh.edu.vn/course/view.php?id=43858">26C1INF50902701</a></dd>
+        <dt>Ngày học</dt>
+        <dd id="today"></dd>
+      </dl>
+      <nav aria-label="Liên kết nhanh">
+        <a href="Bai1.html">Mở Bai1.html</a>
+        <a href="https://github.com/duongvu31241024842/BaiTapCaNhan-Tuan3">Repo trên GitHub</a>
+        <a href="https://duongvu31241024842.github.io/BaiTapCaNhan-Tuan3/">Trang GitHub Pages</a>
+      </nav>
+    </aside>
+
+    <main>
+      <section>
+        <h2>Hôm nay mình học gì?</h2>
+        <p>Hôm nay mình học cách làm cho một trang web hiển thị đẹp trên mọi thiết bị, từ máy tính để bàn đến điện thoại. Thay vì làm riêng nhiều bản, chỉ cần một trang HTML và dùng CSS để nó tự co giãn theo chiều rộng màn hình.</p>
+
+        <h3>Các kiến thức chính</h3>
+        <ul>
+          <li><strong>Thẻ viewport:</strong> <code>&lt;meta name="viewport" ...&gt;</code> báo cho điện thoại hiển thị trang theo đúng chiều rộng màn hình thay vì thu nhỏ cả trang.</li>
+          <li><strong>Chia bố cục bằng float:</strong> hai khối <code>.left</code> (70%) và <code>.right</code> (30%) nằm cạnh nhau bằng <code>float</code> và <code>width</code> theo phần trăm.</li>
+          <li><strong>Media query:</strong> dùng <code>@media</code> để áp dụng CSS khác nhau tùy kích thước màn hình hoặc kiểu thiết bị.</li>
+          <li><strong>Hình ảnh theo màn hình:</strong> thẻ <code>&lt;picture&gt;</code> kết hợp <code>&lt;source media="..."&gt;</code> để chọn logo phù hợp với từng độ rộng.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Các quy tắc đã dùng trong bài</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Điều kiện</th><th>Kết quả</th></tr></thead>
+            <tbody>
+              <tr><td>Màn hình rộng hơn 768px</td><td>Khối LEFT (xanh, 70%) và RIGHT (đỏ, 30%) nằm cạnh nhau</td></tr>
+              <tr><td>Rộng tối đa 768px</td><td>Hai khối cùng rộng 100%, xếp chồng lên nhau</td></tr>
+              <tr><td>Từ 320px đến 479px</td><td>Ẩn khối RIGHT</td></tr>
+              <tr><td>Chế độ in</td><td>Ẩn khối LEFT, khối RIGHT rộng 100%</td></tr>
+              <tr><td>Từ 960px / từ 480px / nhỏ hơn</td><td>Hiện ba logo UEH khác nhau qua thẻ picture</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>Xem bài thực hành</h2>
+        <p>Thử kéo thay đổi kích thước cửa sổ trình duyệt (hoặc bấm F12 rồi chọn chế độ điện thoại) để xem bố cục thay đổi.</p>
+        <p class="meter" aria-live="polite">Chiều rộng cửa sổ hiện tại: <span id="width">…</span> px – <span id="mode"></span></p>
+        <div class="links">
+          <a class="btn" href="Bai1.html">Mở Bai1.html</a>
+          <a class="btn alt" href="https://github.com/duongvu31241024842/BaiTapCaNhan-Tuan3">Xem repo GitHub</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById("today").textContent = new Date().toLocaleDateString("vi-VN");
+    function showWidth() {
+      var w = window.innerWidth;
+      document.getElementById("width").textContent = w;
+      var mode = w <= 479 ? "điện thoại nhỏ (khối RIGHT bị ẩn)"
+               : w <= 768 ? "máy tính bảng (hai khối xếp chồng)"
+               : "máy tính (hai khối nằm cạnh nhau)";
+      document.getElementById("mode").textContent = mode;
+    }
+    showWidth();
+    window.addEventListener("resize", showWidth);
+  </script>
+</body>
+</html>
