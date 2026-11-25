@@ -1,0 +1,19 @@
+{
+  "name": "viec-nho",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ứng dụng quản lý công việc cá nhân bằng tiếng Việt",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "seed": "node src/seed.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.8.1",
+    "express": "^4.21.2"
+  }
+}
